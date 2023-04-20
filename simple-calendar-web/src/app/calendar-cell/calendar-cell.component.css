@@ -3,5 +3,5 @@
 }
 
 .calendar-cell {
-  @apply h-full w-full flex items-center justify-center select-none transition-colors lg:text-2xl md:text-xl sm:text-xs font-bold
+  @apply h-full w-full flex items-center justify-center select-none transition-colors lg:text-2xl md:text-xl max-sm:text-xs font-bold
 }

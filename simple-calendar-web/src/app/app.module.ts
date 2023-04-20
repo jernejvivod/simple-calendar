@@ -11,6 +11,8 @@ import {DayInputFieldComponent} from './day-input-field/day-input-field.componen
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
+import {ApiModule, Configuration} from "./generated-client";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,11 @@ import {TranslateHttpLoader} from "@ngx-translate/http-loader";
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
+    }),
+    ApiModule.forRoot(() => {
+      return new Configuration({
+        basePath: environment.apiUrl
+      })
     })
   ],
   providers: [],

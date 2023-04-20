@@ -23,5 +23,6 @@
     "Fri": "pet",
     "Sat": "sob",
     "Sun": "ned"
-  }
+  },
+  "apiError": "Napaka pri pridobivanju praznikov"
 }

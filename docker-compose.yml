@@ -1,0 +1,12 @@
+version: '3'
+services:
+  simple-calendar-core:
+    build: ./simple-calendar-core
+    ports:
+      - "8080:8080"
+  simple-calendar-web:
+    build: ./simple-calendar-web
+    ports:
+      - "4200:4200"
+    depends_on:
+      - simple-calendar-core

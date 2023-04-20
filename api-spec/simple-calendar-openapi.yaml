@@ -1,0 +1,68 @@
+openapi: 3.0.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/jv723/reference/1.0.0
+info:
+  description: API for the Simple Calendar
+  version: "1.0.0"
+  title: Simple Calendar API
+  contact:
+    email: vivod.jernej@gmail.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+tags:
+  - name: holidays
+    description: Retrieval of data relating to holidays
+paths:
+  /holidays:
+    get:
+      tags:
+        - holidays
+      summary: get list of holidays for country
+      operationId: allHolidays
+      description: Get list of all holidays for the specified country code
+      parameters:
+        - name: countryCode
+          in: query
+          description: The country code for which to retrieve the holidays
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successfully retrieved list of holidays
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Holiday'
+components:
+  schemas:
+    Holiday:
+      type: object
+      required:
+        - day
+        - month
+        - names
+      properties:
+        day:
+          type: integer
+          format: int32
+          example: 1
+        month:
+          type: integer
+          format: int32
+          example: 5
+        year:
+          type: integer
+          format: int32
+          example: 2023
+        names:
+          type: array
+          items:
+            type: string
+

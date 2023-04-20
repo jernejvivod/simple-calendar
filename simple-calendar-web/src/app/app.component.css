@@ -1,5 +1,9 @@
 .app-title {
-  @apply absolute sm:top-5 sm:left-5 md:top-10 md:left-10 lg:top-20 lg:left-20 lg:text-6xl text-white font-bold
+  @apply absolute max-sm:top-2 max-sm:left-2 sm:top-5 sm:left-5 md:top-10 md:left-10 lg:top-20 lg:left-20 lg:text-6xl text-white font-bold
+}
+
+.app-center-div {
+  @apply flex justify-center items-center h-screen
 }
 
 .calendar-card {
@@ -8,7 +12,7 @@
 }
 
 .calendar-card-header {
-  @apply bg-gray-100 shadow-md w-full h-32 rounded-t-lg text-center flex justify-center items-center
+  @apply bg-gray-100 shadow-md w-full max-md:h-20 h-32 rounded-t-lg text-center flex justify-center items-center
 }
 
 .calendar-card-header-element {
@@ -28,9 +32,9 @@
   content: ".";
   position: absolute;
   bottom: 0;
-  @apply text-red-600 font-bold lg:text-2xl text-xl
+  @apply text-red-600 font-bold lg:text-2xl text-xl max-md:text-base
 }
 
 .holiday-info-message {
-  @apply w-full pb-3 text-center lg:text-lg md:text-sm sm:text-xs font-bold
+  @apply w-full pb-3 text-center lg:text-lg max-md:text-xs font-bold
 }

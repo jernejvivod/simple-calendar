@@ -3,7 +3,7 @@ import {Constants} from "../constants";
 import {CalendarControlService} from "../services/calendar-control.service";
 
 import {getDay, getDaysInMonth, startOfMonth} from 'date-fns'
-import {HolidaysService} from "../services/holidays.service";
+import {HolidaysControlService} from "../services/holidays-control.service";
 
 @Component({
   selector: 'app-calendar',
@@ -24,15 +24,14 @@ export class CalendarComponent implements OnInit {
   private holidayDateKeysSet?: Set<string>;
   public selectedDate?: Date;
 
-  constructor(private calendarControlService: CalendarControlService, private holidaysService: HolidaysService) {
+  constructor(private calendarControlService: CalendarControlService, private holidaysService: HolidaysControlService) {
   }
 
   ngOnInit(): void {
     this.calendarControlService.selectedDateObservable.subscribe(date => {
-      // set new selected date and recompute indices for grid (if applicable)
-      // TODO do not need to recompute if new date is same month, same year
-      this.selectedDate = date;
+      // set new selected date and recompute indices for grid
       this.computeCalendarDayIndicesForDate(date);
+      this.selectedDate = date;
 
       // set state (date) for HolidaysService
       this.holidaysService.changeDate(date);
@@ -56,10 +55,14 @@ export class CalendarComponent implements OnInit {
     }
 
     const year = this.selectedDate!.getFullYear()
-    const month = this.selectedDate!.getMonth() + monthModifier + 1;
+    const month = (this.selectedDate!.getMonth() + monthModifier + 1) % 12 || 12;  // make sure that next month for December is January
 
     // query set of obtained date keys of holidays to determine if day is a holiday
     return this.holidayDateKeysSet.has(`${month}-${dayOfMonth}`) || this.holidayDateKeysSet.has(`${year}-${month}-${dayOfMonth}`);
+  }
+
+  public isSunday(dayOfMonth: number, monthModifier: number) {
+    return new Date(this.selectedDate!.getFullYear(), this.selectedDate!.getMonth() + monthModifier, dayOfMonth).getDay() === 0
   }
 
   /**
@@ -109,7 +112,7 @@ export class CalendarComponent implements OnInit {
     this.buffDaysOfPreviousMonth = this.getArrayOfIncrementingIntegers(daysInPrevMonth - sizeBuffDaysOfPreviousMonth + 1, daysInPrevMonth);
 
     // recompute indices for 'buffer' days from the next month
-    this.expandOrContractIncrementingNumbersArrayToLimit(this.buffDaysOfNextMonth, 42 - this.daysOfMonth.length - this.buffDaysOfPreviousMonth.length)  // TODO grid size should be in constants
+    this.expandOrContractIncrementingNumbersArrayToLimit(this.buffDaysOfNextMonth, Constants.CALENDAR_GRID_SIZE - this.daysOfMonth.length - this.buffDaysOfPreviousMonth.length)
   }
 
   /**

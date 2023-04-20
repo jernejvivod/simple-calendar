@@ -49,7 +49,7 @@ export class CalendarControlService {
     // handle leap year (29. February in leap year should become 28. February in non-leap year )
     const daysInMonthInNewYear = getDaysInMonth(new Date(year, this.selectedDate.getMonth()));
 
-    if (this.selectedDate.getDate() > daysInMonthInNewYear)  // TODO test
+    if (this.selectedDate.getDate() > daysInMonthInNewYear)
     {
       this.selectedDate.setDate(daysInMonthInNewYear);
     }

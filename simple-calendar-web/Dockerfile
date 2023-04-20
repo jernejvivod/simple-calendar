@@ -1,0 +1,7 @@
+FROM node:20-alpine3.16
+WORKDIR /app
+COPY . /app
+RUN npm install -g npm@latest
+RUN npm run build
+EXPOSE 4200
+CMD ["npm", "run", "start"]
