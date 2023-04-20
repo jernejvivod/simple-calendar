@@ -1,0 +1,36 @@
+.app-title {
+  @apply absolute sm:top-5 sm:left-5 md:top-10 md:left-10 lg:top-20 lg:left-20 lg:text-6xl text-white font-bold
+}
+
+.calendar-card {
+  max-width: 90%;
+  @apply flex flex-col items-center shadow-2xl rounded-lg bg-white lg:h-2/3 h-5/6
+}
+
+.calendar-card-header {
+  @apply bg-gray-100 shadow-md w-full h-32 rounded-t-lg text-center flex justify-center items-center
+}
+
+.calendar-card-header-element {
+  @apply mx-2 min-w-0
+}
+
+.calendar {
+  aspect-ratio: 1/1;
+  @apply h-full w-full px-5
+}
+
+.day-input {
+  position:relative;
+}
+
+.day-input::after {
+  content: ".";
+  position: absolute;
+  bottom: 0;
+  @apply text-red-600 font-bold lg:text-2xl text-xl
+}
+
+.holiday-info-message {
+  @apply w-full pb-3 text-center lg:text-lg md:text-sm sm:text-xs font-bold
+}

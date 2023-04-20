@@ -1,0 +1,8 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.calendar-input-element {
+  @apply text-red-600 text-center font-bold text-xs lg:text-2xl border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-red-500 focus:border-red-500
+}

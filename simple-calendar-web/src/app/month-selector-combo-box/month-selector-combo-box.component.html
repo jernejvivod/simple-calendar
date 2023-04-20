@@ -1,0 +1,6 @@
+<select [(ngModel)]="selectedMonth" (ngModelChange)="onMonthSelected()"
+        class="calendar-input-element month-selector-sizes">
+  <ng-container *ngFor="let month of months">
+    <option [value]="month.value">{{ 'months.' + month.name | translate }}</option>
+  </ng-container>
+</select>
