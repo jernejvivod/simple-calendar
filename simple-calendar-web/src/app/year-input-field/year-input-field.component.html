@@ -1,0 +1,3 @@
+<input type="number" min="0" max="9999" [(ngModel)]="selectedYear" (change)="onYearSelected()"
+       (input)="validateYear($event)"
+       class="calendar-input-element year-input-sizes  {{ isValidYear ? 'bg-gray-100' : 'bg-red-100' }}">

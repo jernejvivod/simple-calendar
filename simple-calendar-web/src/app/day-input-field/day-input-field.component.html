@@ -1,0 +1,3 @@
+<input type="number" min="1" [max]="maxDay" [(ngModel)]="selectedDay" (change)="onDaySelected()"
+       (input)="validateDay($event)"
+       class="calendar-input-element day-input-sizes {{ isValidDay ? 'bg-gray-100' : 'bg-red-300' }}">

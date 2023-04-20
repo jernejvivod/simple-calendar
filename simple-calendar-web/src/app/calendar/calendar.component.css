@@ -1,0 +1,27 @@
+.calendar-grid {
+  @apply grid grid-cols-7 items-center justify-center text-center h-full w-full
+}
+
+.cell-day-of-week {
+  @apply sm:text-xs border-b border-gray-200
+}
+
+.cell-current-month {
+  @apply hover:bg-green-200 hover:text-black hover:shadow-md
+}
+
+.cell-prev-or-next-month {
+  @apply text-gray-400 font-normal hover:bg-blue-200 hover:shadow-md
+}
+
+.cell-selected {
+  @apply bg-red-400 hover:bg-red-400 text-white hover:text-white shadow-md
+}
+
+.cell-holiday-current-month {
+  @apply bg-amber-200 shadow-md
+}
+
+.cell-holiday-prev-or-next-month {
+  @apply bg-amber-100 shadow-md
+}

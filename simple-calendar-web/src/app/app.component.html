@@ -1,0 +1,20 @@
+<h1 class="app-title"> {{ "app-title-first" | translate | uppercase }} <br/> {{ "app-title-second" | translate | uppercase }} </h1>
+<div class="flex justify-center items-center h-screen">
+  <div class="calendar-card">
+    <div class="calendar-card-header">
+      <span class="calendar-card-header-element day-input">
+        <app-day-input-field></app-day-input-field>
+      </span>
+      <span class="calendar-card-header-element">
+        <app-month-selector-combo-box></app-month-selector-combo-box>
+      </span>
+      <span class="calendar-card-header-element">
+        <app-year-input-field></app-year-input-field>
+      </span>
+    </div>
+    <app-calendar class="calendar"></app-calendar>
+    <div class="holiday-info-message">
+      {{holidaysMessage || '&nbsp;'}}
+    </div>
+  </div>
+</div>
