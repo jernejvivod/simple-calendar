@@ -6,7 +6,7 @@
 
   <ng-container *ngFor="let d of buffDaysOfPreviousMonth">
     <app-calendar-cell class="cell-prev-or-next-month"
-                       [ngClass]="{'cell-holiday-prev-or-next-month' : isHoliday(d, -1)}"
+                       [ngClass]="{'cell-holiday-prev-or-next-month' : isHoliday(d, -1), 'cell-sunday-prev-or-next-month' : isSunday(d, -1)}"
                        (click)="selectInPrevMonth(d)"
                        [key]="d">
     </app-calendar-cell>
@@ -15,7 +15,7 @@
   <ng-container *ngFor="let d of daysOfMonth">
     <app-calendar-cell
       class="cell-current-month"
-      [ngClass]="selectedDate?.getDate() === d ? 'cell-selected' : (isHoliday(d, 0) ? 'cell-holiday-current-month' : '')"
+      [ngClass]="{'cell-selected' : selectedDate?.getDate() === d, 'cell-holiday-current-month' : isHoliday(d, 0) && selectedDate?.getDate() !== d, 'cell-sunday-current-month' : isSunday(d, 0)}"
       (click)="selectInCurrentMonth(d)"
       [key]="d">
     </app-calendar-cell>
@@ -23,7 +23,7 @@
 
   <ng-container *ngFor="let d of buffDaysOfNextMonth">
     <app-calendar-cell class="cell-prev-or-next-month"
-                       [ngClass]="{'cell-holiday-prev-or-next-month' : isHoliday(d, 1)}"
+                       [ngClass]="{'cell-holiday-prev-or-next-month' : isHoliday(d, 1), 'cell-sunday-prev-or-next-month' : isSunday(d, 1)}"
                        (click)="selectInNextMonth(d)"
                        [key]="d">
     </app-calendar-cell>

@@ -1,0 +1,4 @@
+embed-server --std-out=echo
+/subsystem=logging/console-handler=CONSOLE:write-attribute(name=level,value=DEBUG)
+/subsystem=logging/logger=com.github.jernejvivod:add(level=DEBUG)
+stop-embedded-server

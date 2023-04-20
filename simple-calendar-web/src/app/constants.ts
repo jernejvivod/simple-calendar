@@ -17,4 +17,6 @@ export class Constants {
   public static readonly MAX_YEAR = 9999;
   public static readonly MIN_YEAR = 0;
   public static readonly DEFAULT_LANGUAGE = 'sl';
+  public static readonly DEFAULT_HOLIDAYS_COUNTRY_CODE = 'si';
+  public static readonly CALENDAR_GRID_SIZE = 42;
 }

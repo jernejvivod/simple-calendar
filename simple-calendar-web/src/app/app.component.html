@@ -1,5 +1,5 @@
 <h1 class="app-title"> {{ "app-title-first" | translate | uppercase }} <br/> {{ "app-title-second" | translate | uppercase }} </h1>
-<div class="flex justify-center items-center h-screen">
+<div class="app-center-div">
   <div class="calendar-card">
     <div class="calendar-card-header">
       <span class="calendar-card-header-element day-input">
@@ -14,7 +14,7 @@
     </div>
     <app-calendar class="calendar"></app-calendar>
     <div class="holiday-info-message">
-      {{holidaysMessage || '&nbsp;'}}
+      {{holidaysMessage || '&nbsp;' | translate}}
     </div>
   </div>
 </div>

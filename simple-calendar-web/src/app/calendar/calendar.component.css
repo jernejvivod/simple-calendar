@@ -25,3 +25,11 @@
 .cell-holiday-prev-or-next-month {
   @apply bg-amber-100 shadow-md
 }
+
+.cell-sunday-current-month {
+  @apply text-red-700
+}
+
+.cell-sunday-prev-or-next-month {
+  @apply text-red-300
+}

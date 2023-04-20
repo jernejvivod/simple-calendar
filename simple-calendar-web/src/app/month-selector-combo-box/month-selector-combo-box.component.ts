@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {CalendarControlService} from "../services/calendar-control.service";
 import {Constants} from "../constants";
 
-// TODO check CSS of combo-box
 @Component({
   selector: 'app-month-selector-combo-box',
   templateUrl: './month-selector-combo-box.component.html',
