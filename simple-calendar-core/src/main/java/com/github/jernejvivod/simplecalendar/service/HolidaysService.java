@@ -18,6 +18,11 @@ public class HolidaysService {
 
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
+    // mapping of country codes (ISO 3166-1 alpha-2) to singleton holding the list of holidays
+    private static final Map<String, Holidays> countryCodeToSingleton = Map.ofEntries(
+            Map.entry("si", Holidays.SI)
+    );
+
     // enum acting as a collection of singletons holding the lists of holidays for a given country in memory
     public enum Holidays {
         SI("/holidays/holidays_si.json");
@@ -42,11 +47,6 @@ public class HolidaysService {
             }
         }
     }
-
-    // mapping of country codes (ISO 3166-1 alpha-2) to singleton holding the list of holidays
-    private static final Map<String, Holidays> countryCodeToSingleton = Map.ofEntries(
-            Map.entry("si", Holidays.SI)
-    );
 
     /**
      * Get list of all holidays (repeating and non-repeating) for a country with the given country code (ISO 3166-1 alpha-2)
