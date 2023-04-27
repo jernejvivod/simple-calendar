@@ -47,5 +47,5 @@ export class AppModule {
 }
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
-  return new TranslateHttpLoader(http);
+  return new TranslateHttpLoader(http, 'https://jernejvivod.github.io/simple-calendar/assets/i18n/');
 }

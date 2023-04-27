@@ -1,0 +1,28 @@
+{
+  "app-title-first": "Preprost",
+  "app-title-second": "koledar",
+  "months": {
+    "January" : "januar",
+    "February" : "februar",
+    "March" : "marec",
+    "April" : "april",
+    "May" : "maj",
+    "June" : "junij",
+    "July" : "julij",
+    "August" : "avgust",
+    "September" : "september",
+    "October" : "oktober",
+    "November" : "november",
+    "December" : "december"
+  },
+  "daysOfWeek": {
+    "Mon": "pon",
+    "Tue": "tor",
+    "Wed": "sre",
+    "Thu": "čet",
+    "Fri": "pet",
+    "Sat": "sob",
+    "Sun": "ned"
+  },
+  "apiError": "Napaka pri pridobivanju praznikov"
+}
